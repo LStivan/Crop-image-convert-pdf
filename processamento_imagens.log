@@ -1,0 +1,33 @@
+2025-08-29 16:49:28,098 - INFO - Sistema de logging inicializado
+2025-08-29 16:49:28,098 - INFO - ============================================================
+2025-08-29 16:49:28,099 - INFO - PROCESSADOR AUTOMÁTICO DE IMAGENS
+2025-08-29 16:49:28,099 - INFO - ============================================================
+2025-08-29 16:49:28,769 - INFO - Modelo rembg 'u2net' carregado com sucesso
+2025-08-29 16:49:28,770 - INFO - Iniciando busca de imagens em: C:\Users\LStivan\OneDrive - Advocacia Bichara\Documentos\www\Editor de imagem\images
+2025-08-29 16:49:28,771 - INFO - Encontrados 7 arquivos de imagem
+2025-08-29 16:49:28,772 - INFO - 🚀 Iniciando processamento de 7 imagens com 8 threads
+2025-08-29 16:49:28,775 - INFO - Processando: amassado.jpeg
+2025-08-29 16:49:28,776 - INFO - Processando: conta de luz.jpeg
+2025-08-29 16:49:28,776 - INFO - Processando: documento 1.jpeg
+2025-08-29 16:49:28,776 - INFO - Processando: documento 2.jpeg
+2025-08-29 16:49:28,777 - INFO - Processando: identidade verso.jpeg
+2025-08-29 16:49:28,777 - INFO - Processando: identidade.jpeg
+2025-08-29 16:49:28,777 - INFO - Processando: termo.jpeg
+2025-08-29 16:49:30,263 - INFO - ✓ amassado.jpeg (1.49s) - Tipo: custom
+2025-08-29 16:49:30,342 - INFO - ✓ documento 1.jpeg (1.57s) - Tipo: custom
+2025-08-29 16:49:30,380 - INFO - ✓ termo.jpeg (1.60s) - Tipo: letter
+2025-08-29 16:49:30,491 - INFO - ✓ documento 2.jpeg (1.71s) - Tipo: custom
+2025-08-29 16:49:30,620 - INFO - ✓ identidade verso.jpeg (1.84s) - Tipo: custom
+2025-08-29 16:49:30,840 - INFO - ✓ identidade.jpeg (2.06s) - Tipo: custom
+2025-08-29 16:49:30,994 - INFO - ✓ conta de luz.jpeg (2.22s) - Tipo: custom
+2025-08-29 16:49:30,995 - INFO - 📊 Progresso: 7/7 (✅ 7 | ❌ 0)
+2025-08-29 16:49:30,996 - INFO - 📦 Processamento finalizado
+2025-08-29 16:49:30,996 - INFO -    ✅ Processadas: 7
+2025-08-29 16:49:30,996 - INFO -    ❌ Erros: 0
+2025-08-29 16:49:30,996 - INFO -    ⏱️ Tempo total: 2.22s
+2025-08-29 16:49:30,997 - INFO -    ⚡ Velocidade: 3.15 imgs/s
+2025-08-29 16:49:30,997 - INFO - ============================================================
+2025-08-29 16:49:30,997 - INFO - ✅ Processadas: 7
+2025-08-29 16:49:30,997 - INFO - ❌ Erros: 0
+2025-08-29 16:49:30,997 - INFO - ⏱️ Tempo total: 2.22s
+2025-08-29 16:49:30,998 - INFO - Velocidade: 3.15 imgs/s
