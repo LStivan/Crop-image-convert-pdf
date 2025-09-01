@@ -9,6 +9,7 @@
     "binarize",
     "clahe",
     "convhull",
+    "denoised",
     "Denoising",
     "diretorio",
     "docproc",
