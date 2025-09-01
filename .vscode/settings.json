@@ -1,6 +1,7 @@
 {
   "cSpell.words": [
     "argmin",
+    "aspose",
     "BGRA",
     "binariza",
     "Binarizar",
@@ -9,11 +10,13 @@
     "clahe",
     "convhull",
     "Denoising",
+    "diretorio",
     "docproc",
     "docscan",
     "docscanner",
     "exif",
     "Exif",
+    "extensoes",
     "exts",
     "fromarray",
     "gaussian",
