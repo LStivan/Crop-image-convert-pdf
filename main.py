@@ -32,7 +32,7 @@ def setup_logging(verbose: bool = False) -> logging.Logger:
 		level=log_level,
 		format=log_format,
 		handlers=[
-			logging.FileHandler('processamento_imagens.log', encoding='utf-8'),
+			logging.FileHandler('imagens.log', encoding='utf-8'),
 			logging.StreamHandler(sys.stdout)
 		]
 	)
