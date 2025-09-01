@@ -32,7 +32,7 @@ def setup_logging(verbose: bool = False) -> logging.Logger:
 		level=log_level,
 		format=log_format,
 		handlers=[
-			logging.FileHandler('processamento_imagens.log', encoding='utf-8'),
+			logging.FileHandler('imagens.log', encoding='utf-8'),
 			logging.StreamHandler(sys.stdout)
 		]
 	)
@@ -173,10 +173,17 @@ class ImageProcessor:
 		try:
 			path.parent.mkdir(parents=True, exist_ok=True)
 			with self.file_lock:
-				success = cv2.imwrite(str(path), image, [cv2.IMWRITE_PNG_COMPRESSION, 6])
-			if not success:
-				self.logger.error(f"Falha ao salvar: {path}")
-			return success
+				# Converter numpy -> PIL
+				if image.shape[2] == 4:  # BGRA
+					image = cv2.cvtColor(image, cv2.COLOR_BGRA2RGB)
+				else:  # BGR
+					image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+				pil_img = Image.fromarray(image)
+				pdf_path = path.with_suffix('.pdf')
+				pil_img.save(pdf_path, "PDF", resolution=100.0)
+
+			return True
 		except Exception as e:
 			self.logger.error(f"Erro ao salvar {path}: {e}")
 			return False
@@ -337,7 +344,7 @@ class ImageProcessor:
 			final = cv2.cvtColor(final, cv2.COLOR_BGR2RGB)
 
 			relative_path = path.resolve().relative_to(input_base.resolve())
-			out_path = output_base / relative_path.with_suffix('.png')
+			out_path = output_base / relative_path.with_suffix('.pdf')
 			success = self.save_image(final, out_path)
 
 			with self.stats_lock:
@@ -376,7 +383,7 @@ class ImageProcessor:
 
 		total_time = time.time() - start_time
 		with self.stats_lock:
-				stats = self.stats.copy()
+			stats = self.stats.copy()
 		stats['total_time'] = total_time
 		stats['images_per_second'] = len(image_files) / total_time if total_time > 0 else 0
 
@@ -397,7 +404,7 @@ def main():
 		formatter_class=argparse.ArgumentDefaultsHelpFormatter
 	)
 	parser.add_argument('-i','--input-dir', default='.', help='Diretório de entrada')
-	parser.add_argument('-o','--output-dir', default='./saida_da_foto', help='Diretório de saída')
+	parser.add_argument('-o','--output-dir', default='./output', help='Diretório de saída')
 	parser.add_argument('-w','--max-workers', type=int, default=4, help='Threads paralelas')
 	parser.add_argument('-v','--verbose', action='store_true', help='Logging detalhado')
 	parser.add_argument('--rembg-model', default='u2net', choices=['u2net','u2netp','silueta'], help='Modelo rembg')
